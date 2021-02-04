@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A Javascript restoration of «Naranjas» (2002) by Julia Masvernat :: Marcelo Terreni</title>
+
+  <link href="src/css/reset_and_fonts.css" rel="stylesheet">
+  <link href="src/css/naranjas.css" rel="stylesheet">
+  <link href="src/css/about.css" rel="stylesheet">
+
+
+  <script src="src/js/naranjas.js" defer></script>
+
+  <!--
+  * Naranjas (2002) by Julia Masvernat
+  * ES6 restoration for a fragment of the original interactive animation developed in Macromedia Flash
+  * Original work: http://juliamasvernat.com.ar/img/naranjas.swf (needs Adobe Flash Player)
+
+  * @developer Marcelo Terreni (http://www.terreni.com.ar/)
+  * @CSS + E6 + HTML5 Audio
+  * @date January 2020
+  -->
+
+</head>
+<body class="naranjas-body">
+
+  <button class="btn-unmute">
+    <svg class="ico-unmute" x="0" y="0" width="384px" height="384px" viewBox="0 0 384 384" xmlns="http://www.w3.org/2000/svg">
+      <path d="M288,192c0-37.653-21.76-70.187-53.333-85.867v47.147l52.373,52.373C287.68,201.173,288,196.587,288,192z"/>
+      <path d="M341.333,192c0,20.053-4.373,38.933-11.52,56.32l32.32,32.32C376,254.08,384,224,384,192c0-91.307-63.893-167.68-149.333-187.093V48.96C296.32,67.307,341.333,124.373,341.333,192z"/>
+      <polygon points="192,21.333 147.413,65.92 192,110.507"/>
+      <path d="M27.2,0L0,27.2L100.8,128H0v128h85.333L192,362.667V219.2l90.773,90.773c-14.293,10.987-30.4,19.84-48.107,25.173V379.2c29.333-6.72,56.107-20.16,78.613-38.613L356.8,384l27.2-27.2l-192-192L27.2,0z"/>
+    </svg>
+    <span>Unmute</span>
+  </button>
+  
+  <a class="btn-about" href="#about">About</a>
+	
+  <section id="about" class="about-section">
+    <div class="about-position-anchor">
+      <button class="about-btn-close"><span>Close</span>
+        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="14px" height="14px" viewBox="0 0 14 14">
+          <path fill="currentColor" d="M0,13.43c0.29-0.29,0.29-0.77,0-1.06L12.37,0 c0.29,0.29,0.77,0.29,1.06,0l0.35,0.35c-0.29,0.29-0.29,0.77,0,1.06L1.41,13.78c-0.29-0.29-0.77-0.29-1.06,0L0,13.43z"/>
+          <path fill="currentColor" d="M13.78,13.43c-0.29-0.29-0.29-0.77,0-1.06L1.41,0 C1.12,0.29,0.64,0.29,0.35,0L0,0.35c0.29,0.29,0.29,0.77,0,1.06l12.37,12.37c0.29-0.29,0.77-0.29,1.06,0L13.78,13.43z"/>
+        </svg>
+      </button>
+
+      <div class="about-innerwrapper">
+        <ul class="about-langmenu">
+          <li><a href="#" lang="en" aria-current="true">En<span>glish</span></a></li>
+          <li><a href="#" lang="es">Es<span>pañol</span></a></li>
+        </ul>
+
+        <h1 class="about-title">This is a Javascript restoration of a selected screen from <span lang="es">Naranjas</span> (2002) by Julia Masvernat</h1>
+        <div class="about-description">
+          <p><a href="http://juliamasvernat.com.ar/img/naranjas.swf" lang="es">Naranjas</a> is an interactive animation artwork built in Flash by the argentinian artist <span lang="es">Julia Masvernat</span>. I've chosen the <i>“purple level”</i> from the original project and had a try at rewriting it using modern web technologies like ES6 and CSS Animations.</p>
+          <p>Being a 2002 project, I had to deal with some scenarios that weren't around at the time of its conception, like touch interactions or a much wider diversity of devices and screen sizes. A detailed tutorial of this new media restoration work is coming up soon. Meanwhile, <a href="http://terreni.com.ar">check any of the other works in my personal portfolio</a>.</p>
+          <p class="about-credits">Restored with ES6 & CSS by <a href="http://terreni.com.ar">Marcelo Terreni</a></p>
+        </div>
+
+        <div class="about-screenshots">
+          <figure>
+            <img src="src/img/screen_09.png" alt="Pink squares shot downwards and upwards by a pink rectangle in the middle" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="src/img/screen_20.png" alt="Green and black squares over a white background" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="src/img/screen_14.png" alt="Pink squares over a red background" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="src/img/screen_13.png" alt="Purple squares getting smaller over a light blue background" />
+            <figcaption></figcaption>
+          </figure>                 
+        </div>
+
+      </div>
+
+      <a href="https://github.com/materreni/naranjas13" class="btn-viewsource">View source in <strong>GitHub</strong></a>
+    </div>  
+  </section>
+ 
+	<section class="naranjas"></section>	
+
+</body>
+</html>

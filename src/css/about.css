@@ -1,0 +1,327 @@
+/*
+  * Naranjas (2002) by Julia Masvernat
+  * ES6 restoration for a fragment of the original interactive animation developed in Macromedia Flash
+  * Original work: http://juliamasvernat.com.ar/img/naranjas.swf (needs Adobe Flash Player)
+
+  * @developer Marcelo Terreni (http://www.terreni.com.ar/)
+  * @CSS + E6 + HTML5 Audio
+  * @date January 2020
+*/
+
+
+/*======================*/
+/*    ABOUT SECTION     */
+/*======================*/
+.about-section{
+	position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 100vw;
+  overflow-y: auto;
+  background: radial-gradient(farthest-corner at 17% 35%, #430A40 0%, #000 100%) no-repeat 0 0;
+  
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+  pointer-events: none; /* disable select, buttons, etc. */
+}
+
+.about-opened .about-section{
+	pointer-events: auto;
+	opacity: 1;
+}
+
+.about-btn-close{
+	padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+
+	position: absolute;
+	z-index: 2;
+	top: 12px;
+	right: 10px;
+	width: 37px;
+	height: 37px;
+	border: 1px solid #666;
+	border-radius: 50%;
+}
+
+@media screen and (min-width: 93em){
+
+	.about-btn-close{
+		top: 30px;
+		right: 28px;
+		width: 61px;
+		height: 61px;
+		border-color: #999;
+	}
+
+}
+
+.about-btn-close svg{
+	position: absolute;
+	top: calc(50% - 7px);
+	left: calc(50% - 7px);
+	fill: currentColor;
+	pointer-events: none; /* svg gets e.target in Chrome*/
+}
+
+.about-btn-close:hover{ 
+	background: #FFF;
+	color: #000;
+	border-color: #FFF;
+}
+
+
+/*=============================*/
+/*    ABOUT SECTION CONTENTS   */
+/*=============================*/
+.about-innerwrapper{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15px 1fr 15px;
+	max-width: 30rem;
+	color: #E6E6E6;
+	margin: 0 auto 0 auto;
+	padding-top: 5rem;
+}
+
+.about-innerwrapper > *{
+	grid-column: 2 / 3;
+}
+
+@media screen and (min-width: 56em){
+
+	.about-innerwrapper{
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, max-content);
+		padding-top: 5rem;
+		max-width: 50rem;
+	}
+
+}
+
+
+@media screen and (min-width: 93em){
+
+	.about-innerwrapper{
+		display: grid;
+		grid-template-columns: 3fr 1.3fr;
+		grid-template-rows: max-content max-content 1fr;
+		grid-gap: 0 4rem;
+		max-width: 85rem;
+		padding-top: 12rem;
+		padding-bottom: 3rem;
+	}
+
+}
+
+.about-langmenu{
+	display: flex;
+	margin-left: 10px;
+	color: #ECEAE6;
+	text-transform: uppercase;
+	font-family: "Helvetica", Arial, Helvetica, sans-serif;
+	font-size: .75rem;
+	letter-spacing: .05rem;
+	margin-top: 1.125rem;
+	margin-bottom: 1.5rem;
+}
+
+.about-langmenu:nth-child(1){ 
+	margin-left: -10px; 
+}
+
+.about-langmenu a{
+	color: currentColor;
+	text-decoration: none;
+	font-weight: 200;
+	border: 1px solid #444;
+	padding: 8px 12px;
+}
+
+.about-langmenu a:not([aria-current="true"]):hover{
+	background: #FFF;
+	color: #000;
+}
+
+.about-langmenu a[aria-current="true"]{
+	border: none;
+	font-weight: 700;
+}
+
+
+.about-title{
+	font-family: "Helvetica", Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	margin-bottom: 1.5rem;
+	max-width: 24.125rem;
+}
+
+@media screen and (min-width: 56em){
+
+	.about-title{
+		margin-bottom: 3rem;
+	}
+
+}
+
+@media screen and (min-width: 93em){
+	
+	.about-title{
+		max-width: none;
+	}
+
+}
+
+.about-description p{
+	line-height: 1.4;	
+	margin-bottom: 1.5rem;
+	color: rgba(210,210,210,1);
+}
+
+.about-description i{
+	font-style: italic;
+}
+
+.about-description a{
+	color: currentColor;
+	font-weight: 700;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(255,255,255,.3); 
+}
+
+@media screen and (min-width: 56em){
+	
+	.about-description{
+		column-count: 2;
+		column-gap: 2rem;  
+	}
+
+}
+
+
+@media screen and (min-width: 93em){
+
+	.about-description{
+		column-count: auto;
+		column-gap: 0; 
+	}
+
+	p.about-credits{
+		position: absolute;
+		top: 50%;
+		left: 4px;
+		writing-mode: vertical-rl;
+		transform: translateY(-50%) rotate(180deg);
+		text-transform: uppercase;
+		font-size: .75rem;
+		letter-spacing: .025rem;
+		margin-bottom: 0;
+	}
+
+	.about-credits a{ 
+		color: currentColor;
+		text-decoration: none;
+		font-weight: 700;
+		padding-right: 3px;
+		padding-left: 3px;
+		border-left: 1px solid rgba(255,255,255,.3); 
+		border-bottom: none;
+	}
+
+}
+
+.about-screenshots{
+	display: flex;
+	justify-content: space-between;
+	padding-top: 2rem;
+	padding-bottom: 4rem;
+}
+
+@media screen and (min-width: 56em){
+	.about-screenshots{;
+		padding-top: 4rem;
+	}
+}
+
+@media screen and (min-width: 93em){
+	.about-screenshots{
+		grid-column: 1 / 2;
+		grid-row: 1 / 4;
+		padding-top: 0;
+	}
+}
+
+.about-screenshots figure{
+	width: 22%;
+	flex: 0 0 22%;
+	text-align: center;
+	font-size: .875rem;
+}
+
+.about-screenshots img{
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+/* ================= */
+/*    VIEW GITHUB    */
+/* ================= */
+
+@media screen and (min-width: 93em){
+	/* Anchor for github button when absolutely positioned  */
+	.about-position-anchor{
+		position: relative;
+		min-height: 100%;
+	}
+}
+
+.btn-viewsource{
+	display: block;
+	color: currentColor;
+	text-align: center;
+  padding-bottom: 7px;
+  font-size: 0.6875rem;
+  letter-spacing: .05rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 12.5rem;
+  margin: 0 auto 10px auto;
+  background: linear-gradient(90deg, rgba(255,255,255,.3), rgba(255,255,255,.3)) no-repeat center bottom;
+  background-size: 23ch 1px;
+}
+
+
+@media screen and (min-width: 93em){
+	.btn-viewsource{
+		position: absolute;
+		bottom: 12px;
+		right: 12px;
+		border: 1px solid #444;
+		padding: 12px 12px;
+		width: auto;
+		margin-bottom: 0;
+		background: none;
+	}
+
+	.btn-viewsource:hover{
+		background: #FFF;
+		color: #000;
+		border-color: #FFF;
+	}
+
+}
+
+.btn-viewsource strong{ font-weight: 700; }

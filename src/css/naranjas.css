@@ -1,0 +1,167 @@
+/*
+  * Naranjas (2002) by Julia Masvernat
+  * ES6 restoration for a fragment of the original interactive animation developed in Macromedia Flash
+  * Original work: http://juliamasvernat.com.ar/img/naranjas.swf (needs Adobe Flash Player)
+
+  * @developer Marcelo Terreni (http://www.terreni.com.ar/)
+  * @CSS + E6 + HTML5 Audio
+  * @date January 2020
+*/
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+body{
+	font: 100%/1 "Roboto", Arial, Helvetica, sans-serif;
+	background-color: #D1F9FF;
+	overflow: hidden; /* disable scroll as it influences innerWidth value */
+	color: #FFF;
+}
+
+body.about-on{
+	overflow: visible; /* enable scroll possibility for about screen */
+}
+
+.naranjas{	
+	display: grid; 
+	/* template columns/rows will be added in JS */
+	pointer-events: none; /* temporarily disable select, buttons, etc. */
+}
+
+/* class to enable sqs buttons in case I need their events */
+.naranjas_active{ pointer-events: auto; }
+
+
+/*======================*/
+/*    SQUARES STYLES    */
+/*======================*/
+.naranjas button{
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+  border: none;
+  background-color: #6E006E;
+  cursor: default;	
+}
+
+.naranjas button:focus{
+	outline: none; /* prevent visible focus outline on mobile tap */
+}
+
+.naranjas button::-moz-focus-inner{ border: 0; }
+
+
+/*=======================*/
+/*   SQUARES ANIMATION   */
+/*=======================*/
+.naranjas button.vanish{
+	animation: delete 850ms linear forwards;
+}
+
+@keyframes delete {
+  0% {
+  	transform: scale(1);
+  }
+  99% {
+  	transform: scale(0.05);	
+    opacity: 1;
+  /* scale(0) produces render artifacts in Chrome 81, 
+  	 so scale till very small then animate to opacity: 0. 
+  	 scale(0) works too, problem seems happen in the last frame */
+  }
+  100% {
+  	transform: scale(0);
+    opacity: 0;
+  }
+}
+
+
+/*============================*/
+/*   UNMUTE & ABOUT BUTTONS   */
+/*============================*/
+.btn-unmute, .btn-about{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	color: #FFF;
+	background: #000;
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: .05rem;
+	padding: 11px 20px 10px 21px;
+	display: block;
+	box-shadow: 2px 2px 40px 2px rgba(0,0,0,.2);
+	border-radius: 2px;
+}
+
+.btn-about{
+	left: auto;
+	right: 20px;
+	text-decoration: none;
+}
+
+.btn-unmute{
+	padding-left: 18px;
+	padding-right: 18px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.btn-unmute svg{
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin-right: 11px;
+}
+
+.btn-unmute path, .btn-unmute polygon{
+	fill:  currentColor;
+}
+
+.btn-unmute svg, .btn-unmute span{
+	pointer-events: none;
+}
+
+.btn_disabled{
+	display: none;
+}
+
+/* SMALLER BUTTONS FOR MOBILE */
+@media screen and (max-width: 45rem){
+
+	.btn-unmute, .btn-about{
+		top: auto;
+		bottom: 8px;
+		left: 7px;
+		font-size: .75rem;
+		letter-spacing: .05rem;
+		padding: 9px 14px 9px 14px;
+	}
+
+	.btn-about{
+		left: auto;
+		right: 7px;
+		padding-top: 8px;
+	}
+
+	.btn-unmute svg{
+		width: 12px;
+		height: 12px;
+		margin-right: 6px;
+		pointer-events: none;
+	}
+
+}
