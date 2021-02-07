@@ -21,10 +21,11 @@
 
 body{
 	font: 100%/1 "Roboto", Arial, Helvetica, sans-serif;
-	background-color: #D1F9FF;
+	background-color: #6E006E; /* purple */
 	overflow: hidden; /* disable scroll as it influences innerWidth value */
 	color: #FFF;
 }
+
 
 body.about-on{
 	overflow: visible; /* enable scroll possibility for about screen */
@@ -32,8 +33,14 @@ body.about-on{
 
 .naranjas{	
 	display: grid; 
+	background-color: #6E006E; /* purple */
 	/* template columns/rows will be added in JS */
 	pointer-events: none; /* temporarily disable select, buttons, etc. */
+}
+
+/* Class to prevent a flash of light blue background before the grid is calculated */
+.naranjas-ready{
+	background-color: #D1F9FF; /* light blue */
 }
 
 /* class to enable sqs buttons in case I need their events */
@@ -49,7 +56,7 @@ body.about-on{
 	height: 100%;
 	padding: 0;
   border: none;
-  background-color: #6E006E;
+  background-color: #6E006E; /* purple */
   cursor: default;	
 }
 

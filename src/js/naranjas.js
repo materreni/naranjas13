@@ -121,7 +121,8 @@ function buildSqs(horizontals, verticals, widthVport, heightVport, audioValues){
 
 
 	return (
-		naranjasGrid.appendChild(fragment), 
+		naranjasGrid.appendChild(fragment),
+		naranjasGrid.classList.add('naranjas-ready'), 
 		getSqPositions(totalSqs, verticals.size, horizontals.size, widthVport, heightVport, naranjasGrid, audioValues)
 	);
 
@@ -242,8 +243,8 @@ function matchSq(sqsPos, soundPlayers){
 				if(!sq.classList.contains('vanish')){
 					sq.classList.add('vanish');
 
-					//Use a timeout to control queuing and prevent multiple audios clogging
-					setTimeout( () => soundPlayers[plyrNum].play(), 250);
+					//Use a small delay to control queuing and prevent multiple audios clogging
+					setTimeout( () => soundPlayers[plyrNum].play(), plyrNum * 5);
 					(plyrNum < soundPlayers.length - 1) ? plyrNum++ : plyrNum = 0;
 				}
 
