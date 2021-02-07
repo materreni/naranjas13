@@ -241,11 +241,13 @@ function matchSq(sqsPos, soundPlayers){
 				let sq = document.getElementById(i);	
 
 				if(!sq.classList.contains('vanish')){
-					sq.classList.add('vanish');
-
 					//Use a small delay to control queuing and prevent multiple audios clogging
-					setTimeout( () => soundPlayers[plyrNum].play(), plyrNum * 5);
+					//setTimeout( () => soundPlayers[plyrNum].play(), plyrNum * 5);
+					
+					soundPlayers[plyrNum].play();
 					(plyrNum < soundPlayers.length - 1) ? plyrNum++ : plyrNum = 0;
+
+					sq.classList.add('vanish');
 				}
 
 				break;
