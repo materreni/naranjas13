@@ -104,8 +104,8 @@ function amountNsize(resto, sqMinw, vportDimension){
 function buildSqs(horizontals, verticals, widthVport, heightVport, audioValues){
 	const naranjasGrid = document.getElementsByClassName('naranjas')[0];
 	const totalSqs = horizontals.amount * verticals.amount;
-	const sqWidth = horizontals.size / ( widthVport / 100); //convert pixels to vw
-	const sqHeight = verticals.size  / ( widthVport / 100); //convert pixels to vw
+	const sqWidth = decimals(horizontals.size / ( widthVport / 100), 3); //convert pixels to vw
+	const sqHeight = decimals(verticals.size  / ( widthVport / 100), 3); //convert pixels to vw
 		
 	const fragment = document.createDocumentFragment();
 
@@ -275,6 +275,13 @@ function createSoundObjects(audioValues){
 }
 
 
+//=====================//
+//		TRIM DECIMALS		 //
+//=====================//
+function decimals(number, decPoints){
+	const positions = Math.pow(10, decPoints);
+	return Math.round(number * positions) / positions;
+}
 
 
 /*_______________________________________________________________________*/
