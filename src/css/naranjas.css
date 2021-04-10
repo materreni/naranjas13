@@ -8,17 +8,6 @@
   * @date January 2020
 */
 
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
-
 body{
 	font: 100%/1 "Roboto", Arial, Helvetica, sans-serif;
 	background-color: #6E006E; /* purple */
@@ -56,6 +45,7 @@ body.about-on{
 	height: 100%;
 	padding: 0;
   border: none;
+  outline: 1px solid #6E006E;
   background-color: #6E006E; /* purple */
   cursor: default;	
 }
